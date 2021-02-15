@@ -1,6 +1,6 @@
 use crate::interval_norm::IntervalNorm;
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq,serde_derive::Serialize,serde_derive::Deserialize)]
 pub struct Interval {
     pub months: i32,
     pub days: i32,
