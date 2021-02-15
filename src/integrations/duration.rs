@@ -1,5 +1,8 @@
-use crate::{interval_norm::IntervalNorm, Interval};
+use std::ops::Add;
+
 use chrono::Duration;
+
+use crate::{Interval, interval_norm::IntervalNorm};
 
 const NANOS_PER_SEC: i64 = 1_000_000_000;
 const NANOS_PER_MICRO: i64 = 1000;
@@ -36,6 +39,12 @@ impl Interval {
         };
         norm_interval.try_into_interval().ok()
     }
+
+    pub fn to_duration(&self) -> Duration {
+        Duration::microseconds(self.microseconds)
+            .add(Duration::days(self.days as i64))
+            .add(Duration::days(self.months as i64 * 30i64))
+    }
 }
 
 fn reduce_by_units(nano_secs: i64, unit: i64) -> (i64, i64) {
@@ -46,8 +55,9 @@ fn reduce_by_units(nano_secs: i64, unit: i64) -> (i64, i64) {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use chrono::Duration;
+
+    use super::*;
 
     #[test]
     fn can_convert_small_amount_of_days() {
