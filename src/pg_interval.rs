@@ -43,6 +43,18 @@ impl Default for Interval {
     }
 }
 
+impl Interval {
+    // checks if Interval is 0
+    pub fn is_zero(&self)->bool {
+        self.microseconds==0 && self.months==0 && self.days==0
+    }
+
+    // alias for is_zero
+    pub fn is_empty(&self)->bool {
+        self.is_zero()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::Interval;
