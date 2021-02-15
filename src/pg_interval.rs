@@ -7,6 +7,16 @@ pub struct Interval {
     pub microseconds: i64,
 }
 
+impl Default for Interval {
+    fn default() -> Self {
+        Interval {
+            months:0,
+            days:0,
+            microseconds:0
+        }
+    }
+}
+
 impl Interval {
     /// Create a new instance of interval from the months, days, and microseconds.
     pub fn new(months: i32, days: i32, microseconds: i64) -> Interval {
