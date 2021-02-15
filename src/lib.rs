@@ -1,4 +1,7 @@
+extern crate postgres_types;
+
 pub mod integrations;
+
 pub mod interval_fmt;
 pub mod interval_norm;
 pub mod interval_parse;
