@@ -1,4 +1,4 @@
-use pg_interval::Interval;
+use crate::Interval;
 use std::ops;
 
 impl Interval {
@@ -86,7 +86,7 @@ impl ops::Sub for Interval {
 
 #[cfg(test)]
 mod tests {
-    use pg_interval::Interval;
+    use super::*;
 
     #[test]
     fn test_sub_day_time() {
@@ -155,5 +155,4 @@ mod tests {
         let result = interval.checked_sub(interval_sub);
         assert_eq!(result, None);
     }
-
 }

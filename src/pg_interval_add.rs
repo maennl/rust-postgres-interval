@@ -1,4 +1,4 @@
-use pg_interval::Interval;
+use crate::Interval;
 use std::ops;
 
 impl Interval {
@@ -84,7 +84,8 @@ impl ops::Add for Interval {
 
 #[cfg(test)]
 mod tests {
-    use pg_interval::Interval;
+    use super::*;
+
     #[test]
     fn test_checked_add() {
         let interval = Interval::new(13, 0, 0);
@@ -150,5 +151,4 @@ mod tests {
         let result = interval.add_day_time(2, 0, 0, 2.123456789);
         assert_eq!(result, Interval::new(13, 2, 2123456));
     }
-
 }
