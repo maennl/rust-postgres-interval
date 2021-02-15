@@ -1,15 +1,16 @@
 [package]
-name = "pg_interval"
+name = "me_pg_interval"
 version = "0.3.1"
 edition = "2018"
-authors = ["Ryan Piper <piper.ryan235@gmail.com>"]
+authors = ["Marcel Schmidt <msc@maennl.info>","Ryan Piper <piper.ryan235@gmail.com>"]
 license = "MIT"
-description = "A native PostgreSQL interval type"
-repository = "https://github.com/piperRyan/rust-postgres-interval"
+description = "A native PostgreSQL interval type, based on https://github.com/piperRyan/rust-postgres-interval"
+repository = "https://github.com/maennl/rust-postgres-interval.git"
 readme = "README.md"
 keywords = ["database", "postgres", "postgresql", "sql", "interval"]
 include = ["src/*", "Cargo.toml", "LICENSE", "README.md"]
 categories = ["date-and-time"]
+publish=false
 
 [features]
 default = ["postgres"]
